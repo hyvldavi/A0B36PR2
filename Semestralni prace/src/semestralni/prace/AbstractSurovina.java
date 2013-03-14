@@ -9,10 +9,10 @@ package semestralni.prace;
  * @author David
  */
 public abstract class AbstractSurovina {
-    String nazev;
-    double spotreba;
-    double mnozstvi;
-    double cena;
+    private String nazev;
+    private double spotreba;
+    private double mnozstvi;
+    private double cena;
 
     abstract String getNazev();
     abstract void setNazev(String nazev); 
