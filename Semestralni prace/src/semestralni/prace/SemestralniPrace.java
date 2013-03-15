@@ -15,6 +15,11 @@ public class SemestralniPrace {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        AbstractSurovina s = new Surovina("T",1,1,2);
+        s.setNazev("testo");
+        System.out.println(s.getNazev());
+        System.out.println(s.toString());
+        
         
     }
 }
