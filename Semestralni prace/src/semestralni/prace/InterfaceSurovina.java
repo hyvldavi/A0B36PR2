@@ -8,8 +8,7 @@ package semestralni.prace;
  *
  * @author David
  */
-public interface InterfaceSurovina {
-    
+public interface InterfaceSurovina {    
     public String getNazev();
     public void   setNazev(String nazev); 
     public double getSpotreba(); 
