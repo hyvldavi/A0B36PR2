@@ -53,8 +53,7 @@ public class Surovina implements InterfaceSurovina {
             return false;
         }
         return true;
-    }
-     
+    }     
     
     public Surovina(String nazev,double spotreba,double mnozstvi,double cena) {
          this.nazev = nazev;
@@ -64,47 +63,19 @@ public class Surovina implements InterfaceSurovina {
     }
 
     @Override
-    public String getNazev() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    public String getNazev()                   {return this.nazev;}
     @Override
-    public void setNazev(String nazev) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    public void   setNazev(String nazev)       {this.nazev = nazev;}
     @Override
-    public double getSpotreba() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    public double getSpotreba()                {return this.spotreba;}
     @Override
-    public void setSpotreba(double spotreba) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    public void   setSpotreba(double spotreba) {this.spotreba = spotreba;}
     @Override
-    public double getMnozstvi() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    public double getMnozstvi()                {return this.mnozstvi;}
     @Override
-    public void setMnozstvi(double mnozstvi) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    public void   setMnozstvi(double mnozstvi) {this.mnozstvi = mnozstvi;};
     @Override
-    public double getCena() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    public double getCena()                    {return this.cena;}
     @Override
-    public void setCena(double cena) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-  
-     
- 
-    
+    public void   setCena(double cena)         {this.cena = cena;}    
 }
