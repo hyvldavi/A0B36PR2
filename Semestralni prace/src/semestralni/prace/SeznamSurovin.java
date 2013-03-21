@@ -37,6 +37,9 @@ private ArrayList<Surovina> list;
         }
         
     }
+    public boolean najdiSurovinu(String nazev){
+        
+    }
     //vypisuje jenom nazev zatim
     
     
