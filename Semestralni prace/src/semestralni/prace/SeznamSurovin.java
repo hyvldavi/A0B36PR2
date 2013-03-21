@@ -4,7 +4,9 @@
  */
 package semestralni.prace;
 
-import java.awt.List;
+
+
+import java.io.*;
 import java.util.ArrayList;
 
 
@@ -13,15 +15,15 @@ import java.util.ArrayList;
  *
  * @author David
  */
-public class SeznamSurovin {
+public class SeznamSurovin implements Serializable {
 private Surovina s;
 private ArrayList<Surovina> list;
 
+
     public Surovina getS() {return s;}
-    public void setS(Surovina s) {this.s = s;}
-    
-    public void pridejSurovinu(Surovina s){
-        list.add(s);
+    public void setS(Surovina s) {this.s = s;}    
+    public void pridejSurovinu(Surovina s) {      
+        list.add(s);        
     }
     public void odeberSurovinu(Surovina s){
         list.remove(s);
@@ -35,8 +37,12 @@ private ArrayList<Surovina> list;
         }
         
     }
-
-    public SeznamSurovin() {
+    //vypisuje jenom nazev zatim
+    
+    
+    
+    
+    public SeznamSurovin() {        
         list = new ArrayList<Surovina> ();
     }
     

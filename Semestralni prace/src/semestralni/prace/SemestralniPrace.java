@@ -4,17 +4,23 @@
  */
 package semestralni.prace;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.Serializable;
+
+
 /**
  *
  * @author David
  */
-public class SemestralniPrace {
+public class SemestralniPrace implements Serializable {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
         // TODO code application logic here
+        FileWork saving = new FileWork();
         Surovina s1 = new Surovina("a",1,2,3);       
          Surovina s2 = new Surovina("b",4,5,6);   
           Surovina s3 = new Surovina("c",7,8,9);   
@@ -22,10 +28,9 @@ public class SemestralniPrace {
           seznam.pridejSurovinu(s1);
           seznam.pridejSurovinu(s2);
           seznam.pridejSurovinu(s3);
-         seznam.vypisSuroviny();
-        
-        
-        
-        
+         saving.ulozSeznamSurovin(seznam);
+        SeznamSurovin novy = saving.nactiSeznamSurovin();
+        novy.vypisSuroviny();
+         
     }
 }

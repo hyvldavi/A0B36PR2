@@ -8,6 +8,6 @@ package semestralni.prace;
  *
  * @author David
  */
-public class AbstractPizza {
+public class Objednavka {
     
 }

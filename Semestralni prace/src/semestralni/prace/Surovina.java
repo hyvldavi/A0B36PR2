@@ -4,13 +4,14 @@
  */
 package semestralni.prace;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author David
  */
-public class Surovina implements InterfaceSurovina {
+public class Surovina implements InterfaceSurovina,Serializable {
       private String nazev ;
       private double spotreba ;
       private double mnozstvi ;
@@ -19,6 +20,11 @@ public class Surovina implements InterfaceSurovina {
     @Override
     public String toString() {
         return "Surovina{" + "nazev=" + this.nazev + ", spotreba=" + spotreba + ", mnozstvi=" + mnozstvi + ", cena=" + cena + '}';
+    }
+    public String toStringSave(Surovina s){
+        String a = null;
+        a = this.nazev+"/"+this.cena+"/"+this.mnozstvi+"/"+this.spotreba+"*";
+        return a;
     }
 
     @Override
