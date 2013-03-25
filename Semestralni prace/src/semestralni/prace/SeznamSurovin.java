@@ -25,21 +25,24 @@ class Source extends JFrame{
     JMenu men;
     JMenuItem item;   
     
-            public Source(){
+            public Source() throws FileNotFoundException, IOException, ClassNotFoundException{
+            FileWork files = new FileWork();
+            SeznamSurovin s = files.nactiSeznamSurovin();
             Container con = getContentPane();
             BorderLayout border = new BorderLayout();
             con.setLayout(border);
             menu = new JMenuBar();
             men = new JMenu("Ahoj");
             item = new JMenuItem("Nazdar");
-            
+            label = new JLabel();
             setResizable(false);
             con.setBackground(Color.ORANGE);
             setBounds(200,200,400,400);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            
-            con.add(menu,border.NORTH);
+            con.add(menu,BorderLayout.NORTH);
             menu.add(men);
-            men.add(item);           
+            men.add(item); 
+            
         }
         }
 
@@ -66,7 +69,7 @@ private ArrayList<Surovina> list;
         }
         
     }
-    public void zobrazSeznam(SeznamSurovin s){        
+    public void zobrazSeznam(SeznamSurovin s) throws FileNotFoundException, IOException, ClassNotFoundException{        
         Source okno = new Source();
         okno.setVisible(true);
         

@@ -24,7 +24,7 @@ public class MainGraphic extends JFrame{
     public MainGraphic(){
         Container con = getContentPane();
         Container con2;
-      
+      setBounds(200,200,400,400);
         
         BorderLayout border = new BorderLayout();
         con.setLayout(border);
