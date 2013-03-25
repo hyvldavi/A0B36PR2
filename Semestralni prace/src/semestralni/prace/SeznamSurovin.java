@@ -23,9 +23,7 @@ class Source extends JFrame{
     JLabel label;
     JMenuBar menu;
     JMenu men;
-    JMenuItem item;
-    
-    
+    JMenuItem item;   
     
             public Source(){
             Container con = getContentPane();
@@ -41,10 +39,7 @@ class Source extends JFrame{
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            
             con.add(menu,border.NORTH);
             menu.add(men);
-            men.add(item);
-            
-            
-            
+            men.add(item);           
         }
         }
 
@@ -71,7 +66,7 @@ private ArrayList<Surovina> list;
         }
         
     }
-    public void zobrazSeznam(SeznamSurovin s){
+    public void zobrazSeznam(SeznamSurovin s){        
         Source okno = new Source();
         okno.setVisible(true);
         
