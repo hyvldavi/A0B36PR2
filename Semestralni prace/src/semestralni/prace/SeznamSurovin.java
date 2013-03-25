@@ -6,8 +6,11 @@ package semestralni.prace;
 
 
 
+
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
 
 
@@ -15,7 +18,37 @@ import java.util.ArrayList;
  *
  * @author David
  */
-public class SeznamSurovin implements Serializable {
+class Source extends JFrame{
+    JButton button;
+    JLabel label;
+    JMenuBar menu;
+    JMenu men;
+    JMenuItem item;
+    
+    
+    
+            public Source(){
+            Container con = getContentPane();
+            BorderLayout border = new BorderLayout();
+            con.setLayout(border);
+            menu = new JMenuBar();
+            men = new JMenu("Ahoj");
+            item = new JMenuItem("Nazdar");
+            
+            setResizable(false);
+            con.setBackground(Color.ORANGE);
+            setBounds(200,200,400,400);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            
+            con.add(menu,border.NORTH);
+            menu.add(men);
+            men.add(item);
+            
+            
+            
+        }
+        }
+
+public class SeznamSurovin implements Serializable  {
 private Surovina s;
 private ArrayList<Surovina> list;
 
@@ -34,11 +67,20 @@ private ArrayList<Surovina> list;
         for (int i = 0; i < pocet; i++) {
            a = list.get(i);
             System.out.print(a.getNazev());
+            System.out.println("");
         }
         
     }
-    public boolean najdiSurovinu(String nazev){
+    public void zobrazSeznam(SeznamSurovin s){
+        Source okno = new Source();
+        okno.setVisible(true);
         
+        
+        
+    }
+    public boolean najdiSurovinu(String nazev){
+        boolean bool = true;
+        return bool;
     }
     //vypisuje jenom nazev zatim
     

@@ -31,6 +31,7 @@ public class SemestralniPrace implements Serializable {
          saving.ulozSeznamSurovin(seznam);
         SeznamSurovin novy = saving.nactiSeznamSurovin();
         novy.vypisSuroviny();
+        novy.zobrazSeznam(novy);
          
     }
 }

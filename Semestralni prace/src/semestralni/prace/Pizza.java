@@ -48,9 +48,7 @@ public class Pizza implements InterfacePizza{
             System.out.println("Zadej nazev suroviny");
             String nazev = scan.nextLine();
             
-            if (sez.) {
-                
-            }
+            
             
             
         }
