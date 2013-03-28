@@ -20,15 +20,16 @@ import javax.swing.*;
 public class MainGraphic extends JFrame{
     JButton button;
     JLabel label;
+    BorderLayout border;
+    Container con;
     
     public MainGraphic(){
-        Container con = getContentPane();
-        Container con2;
-      setBounds(200,200,400,400);
+        con = getContentPane();       
+        setBounds(0,0,1000,600);
         
-        BorderLayout border = new BorderLayout();
+        border = new BorderLayout();
         con.setLayout(border);
-               
+              
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);          
         
@@ -37,8 +38,13 @@ public class MainGraphic extends JFrame{
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                FileWork files = new FileWork();
-                SeznamSurovin sez = new SeznamSurovin();
+                
+                    SourceGraphic okno = new SourceGraphic();
+                    JInternalFrame f = new SourceGraphic();
+                    
+                    f.setVisible(true);
+                    con.add(f,BorderLayout.CENTER);
+                    
                 
             }
             

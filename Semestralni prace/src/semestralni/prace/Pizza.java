@@ -33,15 +33,9 @@ public class Pizza implements InterfacePizza{
     public void setSuroviny(ArrayList suroviny) {
         FileWork files = new FileWork();
         SeznamSurovin sez;
-        try {
+        
             sez = files.nactiSeznamSurovin();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Pizza.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Pizza.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Pizza.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         System.out.println("Zadej pocet surovin");
         int pocet = scan.nextInt();
         for (int i = 0; i < pocet; i++) {

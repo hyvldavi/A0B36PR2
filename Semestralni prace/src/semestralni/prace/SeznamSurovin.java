@@ -3,64 +3,31 @@
  * and open the template in the editor.
  */
 package semestralni.prace;
-
-
-
-
-import java.awt.*;
-import java.io.*;
+import java.awt.List;
+import java.io.Serializable;
 import java.util.ArrayList;
-import javax.swing.*;
-
-
-
 /**
  *
  * @author David
  */
-class Source extends JFrame{
-    JButton button;
-    JLabel label;
-    JMenuBar menu;
-    JMenu men;
-    JMenuItem item;   
-    
-            public Source() throws FileNotFoundException, IOException, ClassNotFoundException{
-                String help;
-            FileWork files = new FileWork();
-            SeznamSurovin s = files.nactiSeznamSurovin();
-            Container con = getContentPane();
-            BorderLayout border = new BorderLayout();
-            con.setLayout(border);
-            menu = new JMenuBar();
-            men = new JMenu("Ahoj");
-            item = new JMenuItem("Nazdar");
-            label = new JLabel(help = s.vypis());
-            setResizable(false);
-            con.setBackground(Color.ORANGE);
-            setBounds(200,200,400,400);
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            
-            con.add(menu,BorderLayout.NORTH);
-            menu.add(men);
-            men.add(item); 
-            con.add(label,BorderLayout.CENTER);
-            
-        }
-        }
+
 
 public class SeznamSurovin extends List implements Serializable  {
-private Surovina s;
-private ArrayList<Surovina> list;
+    
+private Surovina s; // privatni surovina jako prvek Arraylistu
+private ArrayList<Surovina> list; // privatni Arraylist pro ukladani surovin
 
 
-    public Surovina getS() {return s;}
+    public Surovina getS(int i) {
+       s = list.get(i);
+        return s;}
+    //vraci surovinu na pozici i v poli
     public void setS(Surovina s) {this.s = s;}    
-    public void pridejSurovinu(Surovina s) {      
-        list.add(s);        
-    }
-    public void odeberSurovinu(Surovina s){
-        list.remove(s);
-    }
+    //?zatim nepouzito
+    public void pridejSurovinu(Surovina s) {list.add(s);}
+    //?prida surovinu
+    public void odeberSurovinu(Surovina s){list.remove(s);}
+    //?odebere surovinu - predelat na nazev mozna...
     public void vypisSuroviny(){
         int pocet = list.size();
         Surovina a;
@@ -68,39 +35,34 @@ private ArrayList<Surovina> list;
            a = list.get(i);
             System.out.print(a.getNazev());
             System.out.println("");
-        }
-        
-    }
-    public String vypis() throws FileNotFoundException, IOException, ClassNotFoundException{
-        String alpha;
-         FileWork files = new FileWork();
-         SeznamSurovin s1 = files.nactiSeznamSurovin();
-         int a = s1.list.size();
-         for (int i = 0; i < a; i++) {
-             alpha = s1.s.getNazev();
-            return alpha;
-        }
-        return null;
-        
-    }
-    public void zobrazSeznam(SeznamSurovin s) throws FileNotFoundException, IOException, ClassNotFoundException{        
-        Source okno = new Source();
-        okno.setVisible(true);
-        
-        
-        
-    }
+        }        
+    }   
+    //vypisuje nazvy surovin pod sebe    
     public boolean najdiSurovinu(String nazev){
-        boolean bool = true;
+        boolean bool = false;
+        SeznamSurovin s;
+        FileWork files = new FileWork();
+        s = files.nactiSeznamSurovin();
+        for (int i = 0; i < s.list.size(); i++) {
+            Surovina source = s.getS(i);//cislo - index 
+            if (nazev.toLowerCase().equals(source.getNazev().toLowerCase())) {
+                bool = true;
+            }            
+        }
         return bool;
     }
-    //vypisuje jenom nazev zatim
+    //vraci boolean pokud existuje surovina podle nazvu  
     
-    
-    
+    public int getsSize(){
+       int a;
+       a = list.size();
+       return a;      
+    }
+    //vraci delku seznamu
     
     public SeznamSurovin() {        
         list = new ArrayList<> ();
     }
+   //konstruktor, vytvari arraylist
     
 }

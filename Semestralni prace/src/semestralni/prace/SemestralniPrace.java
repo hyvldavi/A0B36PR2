@@ -20,8 +20,8 @@ public class SemestralniPrace implements Serializable {
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
         // TODO code application logic here
-        MainGraphic start = new MainGraphic();
-        start.setVisible(true);
+       MainGraphic start = new MainGraphic();
+      start.setVisible(true);
         FileWork saving = new FileWork();
         Surovina s1 = new Surovina("a",1,2,3);       
          Surovina s2 = new Surovina("b",4,5,6);   
@@ -30,8 +30,14 @@ public class SemestralniPrace implements Serializable {
           seznam.pridejSurovinu(s1);
           seznam.pridejSurovinu(s2);
           seznam.pridejSurovinu(s3);
+          saving.ulozSeznamSurovin(seznam);
+          boolean bool = seznam.najdiSurovinu("k");
+          System.out.println(bool);
          saving.ulozSeznamSurovin(seznam);
+         seznam.vypisSuroviny();
         SeznamSurovin novy = saving.nactiSeznamSurovin();
+        novy.vypisSuroviny();
+        
         
          
     }
