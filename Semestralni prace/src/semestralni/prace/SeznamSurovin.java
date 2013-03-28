@@ -26,6 +26,7 @@ class Source extends JFrame{
     JMenuItem item;   
     
             public Source() throws FileNotFoundException, IOException, ClassNotFoundException{
+                String help;
             FileWork files = new FileWork();
             SeznamSurovin s = files.nactiSeznamSurovin();
             Container con = getContentPane();
@@ -34,7 +35,7 @@ class Source extends JFrame{
             menu = new JMenuBar();
             men = new JMenu("Ahoj");
             item = new JMenuItem("Nazdar");
-            label = new JLabel();
+            label = new JLabel(help = s.vypis());
             setResizable(false);
             con.setBackground(Color.ORANGE);
             setBounds(200,200,400,400);
@@ -42,11 +43,12 @@ class Source extends JFrame{
             con.add(menu,BorderLayout.NORTH);
             menu.add(men);
             men.add(item); 
+            con.add(label,BorderLayout.CENTER);
             
         }
         }
 
-public class SeznamSurovin implements Serializable  {
+public class SeznamSurovin extends List implements Serializable  {
 private Surovina s;
 private ArrayList<Surovina> list;
 
@@ -69,6 +71,18 @@ private ArrayList<Surovina> list;
         }
         
     }
+    public String vypis() throws FileNotFoundException, IOException, ClassNotFoundException{
+        String alpha;
+         FileWork files = new FileWork();
+         SeznamSurovin s1 = files.nactiSeznamSurovin();
+         int a = s1.list.size();
+         for (int i = 0; i < a; i++) {
+             alpha = s1.s.getNazev();
+            return alpha;
+        }
+        return null;
+        
+    }
     public void zobrazSeznam(SeznamSurovin s) throws FileNotFoundException, IOException, ClassNotFoundException{        
         Source okno = new Source();
         okno.setVisible(true);
@@ -86,7 +100,7 @@ private ArrayList<Surovina> list;
     
     
     public SeznamSurovin() {        
-        list = new ArrayList<Surovina> ();
+        list = new ArrayList<> ();
     }
     
 }

@@ -39,16 +39,7 @@ public class MainGraphic extends JFrame{
             public void actionPerformed(ActionEvent ae) {
                 FileWork files = new FileWork();
                 SeznamSurovin sez = new SeznamSurovin();
-                try {
-                    SeznamSurovin  s = files.nactiSeznamSurovin();
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(MainGraphic.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(MainGraphic.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(MainGraphic.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                sez.zobrazSeznam(sez);
+                
             }
             
         });       
