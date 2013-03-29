@@ -7,6 +7,7 @@ package semestralni.prace;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -38,13 +39,15 @@ public class MainGraphic extends JFrame{
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
-                    SourceGraphic okno = new SourceGraphic();
-                    JInternalFrame f = new SourceGraphic();
+            
+            
                     
+                    JInternalFrame f = new JInternalFrame("Suroviny",false,true);                    
                     f.setVisible(true);
-                    con.add(f,BorderLayout.CENTER);
+                    f.setClosable(true);
+                    f.setDefaultCloseOperation(JInternalFrame.EXIT_ON_CLOSE);
                     
+                    con.add(f,BorderLayout.CENTER); 
                 
             }
             
