@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author David
  */
 public interface InterfacePizza {
+    public void      upecPizzu(double vydelek);
     public String    getNazev();
     public void      setNazev(String nazev);
     public void      setCena(double cena);

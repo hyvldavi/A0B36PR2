@@ -52,7 +52,21 @@ private ArrayList<Surovina> list; // privatni Arraylist pro ukladani surovin
         return bool;
     }
     //vraci boolean pokud existuje surovina podle nazvu  
-    
+    public Surovina getsSurovinu(String nazev){
+        Surovina sur = null;
+        SeznamSurovin s;
+        FileWork files = new FileWork();
+        
+        s = files.nactiSeznamSurovin();
+        for (int i = 0; i < s.list.size(); i++) {
+            Surovina source = s.getS(i);//cislo - index 
+            if (nazev.toLowerCase().equals(source.getNazev().toLowerCase())) {
+                sur = source;
+            }            
+        }       
+        return sur;
+    }
+    // vraci surovinu pokud existuje nebo null pokud neexitsuje v seznamu
     public int getsSize(){
        int a;
        a = list.size();

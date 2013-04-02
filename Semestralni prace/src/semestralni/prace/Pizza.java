@@ -21,6 +21,7 @@ public class Pizza implements InterfacePizza{
     private ArrayList<Surovina> suroviny;
     private int velikost;
     Scanner scan;
+    
     @Override
     public String getNazev() {return this.nazev;}
     @Override
@@ -31,25 +32,18 @@ public class Pizza implements InterfacePizza{
     public double getCena() {return this.cena;}
     @Override
     public void setSuroviny(ArrayList suroviny) {
+        ArrayList helpS = new ArrayList();
         FileWork files = new FileWork();
-        SeznamSurovin sez;
-        
-            sez = files.nactiSeznamSurovin();
-        
+        SeznamSurovin sez = files.nactiSeznamSurovin();        
         System.out.println("Zadej pocet surovin");
         int pocet = scan.nextInt();
         for (int i = 0; i < pocet; i++) {
             System.out.println("Zadej nazev suroviny");
-            String nazev = scan.nextLine();
-            
-            
-            
-            
-        }
-        
-        
-        
+            String nazev = scan.nextLine();           
+            sez.najdiSurovinu(nazev);
+        }       
         this.suroviny = suroviny;}
+    
     @Override
     public ArrayList getSuroviny() {return this.suroviny;}
     @Override
@@ -63,6 +57,19 @@ public class Pizza implements InterfacePizza{
         this.suroviny = suroviny;
         this.velikost = velikost;
     }
+
+    @Override
+    public void upecPizzu(double vydelek) {
+        vydelek += this.cena;
+        for (int i = 0; i < this.suroviny.size(); i++) {
+            Surovina s = this.suroviny.get(i);
+            double mnozstvi = s.getMnozstvi();
+            double spotreba = s.getSpotreba();
+            double spotrebovano = mnozstvi - spotreba;
+            s.setMnozstvi(spotrebovano);           
+        }      
+    }
+    // odebira suroviny , chybi osetreni, zaporne suroviny, varovani nizkych surovin
 
    
 }
