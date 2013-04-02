@@ -20,8 +20,10 @@ public class SemestralniPrace implements Serializable {
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
         // TODO code application logic here
-       MainGraphic start = new MainGraphic();
-      start.setVisible(true);
+      // MainGraphic start = new MainGraphic();
+     // start.setVisible(true);
+        double vydelek = 0;
+        
         FileWork saving = new FileWork();
         Surovina s1 = new Surovina("a",1,2,3);       
          Surovina s2 = new Surovina("b",4,5,6);   
@@ -37,6 +39,13 @@ public class SemestralniPrace implements Serializable {
          seznam.vypisSuroviny();
         SeznamSurovin novy = saving.nactiSeznamSurovin();
         novy.vypisSuroviny();
+        Pizza p = new Pizza("Sunka",100,32);
+        p.setSuroviny(1,"a");
+        vydelek = p.upecPizzu(vydelek);
+        System.out.println(vydelek);
+       
+        
+        
         
         
          

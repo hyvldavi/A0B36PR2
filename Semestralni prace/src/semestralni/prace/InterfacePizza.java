@@ -11,12 +11,12 @@ import java.util.ArrayList;
  * @author David
  */
 public interface InterfacePizza {
-    public void      upecPizzu(double vydelek);
+    public double      upecPizzu(double vydelek);
     public String    getNazev();
     public void      setNazev(String nazev);
     public void      setCena(double cena);
     public double    getCena();
-    public void      setSuroviny(ArrayList suroviny);
+    public void      setSuroviny(int pocet,String nazev);
     public ArrayList getSuroviny();
     public int       getVelikost();
     public void      setVelikost(int velikost);

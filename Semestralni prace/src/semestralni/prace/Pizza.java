@@ -31,18 +31,19 @@ public class Pizza implements InterfacePizza{
     @Override
     public double getCena() {return this.cena;}
     @Override
-    public void setSuroviny(ArrayList suroviny) {
-        ArrayList helpS = new ArrayList();
+    public void setSuroviny(int pocet,String nazev) {
+        
         FileWork files = new FileWork();
-        SeznamSurovin sez = files.nactiSeznamSurovin();        
-        System.out.println("Zadej pocet surovin");
-        int pocet = scan.nextInt();
+        SeznamSurovin sez = files.nactiSeznamSurovin();
+        boolean bool;
         for (int i = 0; i < pocet; i++) {
-            System.out.println("Zadej nazev suroviny");
-            String nazev = scan.nextLine();           
-            sez.najdiSurovinu(nazev);
+            bool = sez.najdiSurovinu(nazev);
+            if (bool == true) {
+                this.suroviny.add(sez.getsSurovinu(nazev));                 
+            }
         }       
-        this.suroviny = suroviny;}
+        }
+    //nastavuje seznam surovin potrebny pro vytvoreni pizzy
     
     @Override
     public ArrayList getSuroviny() {return this.suroviny;}
@@ -51,15 +52,15 @@ public class Pizza implements InterfacePizza{
     @Override
     public void setVelikost(int velikost) {this.velikost = velikost;}
 
-    public Pizza(String nazev, double cena, ArrayList suroviny, int velikost) {
+    public Pizza(String nazev, double cena, int velikost) {
         this.nazev = nazev;
         this.cena = cena;
-        this.suroviny = suroviny;
+        this.suroviny = new ArrayList();
         this.velikost = velikost;
     }
 
     @Override
-    public void upecPizzu(double vydelek) {
+    public double upecPizzu(double vydelek) {
         vydelek += this.cena;
         for (int i = 0; i < this.suroviny.size(); i++) {
             Surovina s = this.suroviny.get(i);
@@ -67,7 +68,8 @@ public class Pizza implements InterfacePizza{
             double spotreba = s.getSpotreba();
             double spotrebovano = mnozstvi - spotreba;
             s.setMnozstvi(spotrebovano);           
-        }      
+        } 
+        return vydelek;
     }
     // odebira suroviny , chybi osetreni, zaporne suroviny, varovani nizkych surovin
 
