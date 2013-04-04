@@ -4,6 +4,7 @@
  */
 package semestralni.prace;
 
+import java.awt.List;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -11,9 +12,24 @@ import java.util.ArrayList;
  *
  * @author David
  */
-public class SeznamPizz {
+public class SeznamPizz extends List {
     private Pizza p;
-    private ArrayList seznam;
-    private File soubor;
+    private ArrayList<Pizza> list;
+    
+    public void pridejPizzu(Pizza p){list.add(p);}
+    public void odeberPizzu(Pizza p){list.remove(p);}    
+    public int getsSize(){
+       int a;
+       a = list.size();
+       return a;      
+    }    
+    
+    
+    
+    
+    public SeznamPizz(){
+        list = new ArrayList();
+    }
+   
     
 }
